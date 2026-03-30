@@ -1,0 +1,52 @@
+#define LOW_FLOAT D5
+#define HIGH_FLOAT D6
+#define BUZZER D7
+
+void setup() {
+  pinMode(LOW_FLOAT, INPUT_PULLUP);
+  pinMode(HIGH_FLOAT, INPUT_PULLUP);
+  pinMode(BUZZER, OUTPUT);
+  digitalWrite(BUZZER, LOW);
+}
+
+void loop() {
+
+  int lowState = digitalRead(LOW_FLOAT);
+  int highState = digitalRead(HIGH_FLOAT);
+
+  // 🔴 OVERFLOW (Both floats up)
+  if (highState == LOW && lowState == LOW) {
+    overflowAlert();
+  }
+
+  // 🟡 LOW LEVEL (Both floats down)
+  else if (lowState == HIGH && highState == HIGH) {
+    lowAlert();
+  }
+
+  else {
+    noTone(BUZZER);
+  }
+}
+
+// 🔴 Overflow Emergency
+void overflowAlert() {
+  tone(BUZZER, 3000);
+  delay(200);
+  noTone(BUZZER);
+  delay(50);
+}
+
+// 🟡 Low Tank Alert
+void lowAlert() {
+
+  tone(BUZZER, 3000);
+  delay(250);
+  noTone(BUZZER);
+  delay(120);
+
+  tone(BUZZER, 3000);
+  delay(250);
+  noTone(BUZZER);
+  delay(800);
+}
