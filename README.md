@@ -54,13 +54,14 @@ BUZZER     -> D7
 ## 📸 Project Images
 
 ### Tank Setup
-![Tank](tank.jpg)
+![Tank](Tank.jpg)
 
 ### Sensor Placement
-![Sensors](sensor.jpg)
+![Sensors](Sensor.jpg)
 
 ### Device Setup
-![Device](device.jpg)
+
+[▶️ Watch Device Setup Video](Device%20Setup.mp4)
 
 ## 🚀 Future Upgrades
 This system is designed to evolve into a complete smart water automation solution:
